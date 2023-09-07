@@ -6,6 +6,7 @@
     "@craco/craco": "^7.1.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@graphql-codegen/typescript-graphql-request": "^5.0.0",
     "@mui/material": "^5.14.8",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -27,7 +28,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "codegen": "graphql-codegen --config codegen.yaml"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +50,9 @@
     ]
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
     "graphql-tag": "^2.12.6"
   }
 }
