@@ -19,6 +19,12 @@ export type Scalars = {
   uuid: { input: any; output: any; }
 };
 
+export type AdminGetOutput = {
+  __typename?: 'AdminGetOutput';
+  id: Scalars['String']['output'];
+  username: Scalars['String']['output'];
+};
+
 export type AdminLoginInput = {
   password: Scalars['String']['input'];
   username: Scalars['String']['input'];
@@ -650,6 +656,7 @@ export type Query_Root = {
   __typename?: 'query_root';
   /** fetch data from the table: "admin" */
   admin: Array<Admin>;
+  adminGetMe?: Maybe<AdminGetOutput>;
   /** Login Admin */
   adminLogin?: Maybe<AdminLoginOutput>;
   /** fetch aggregated fields from the table: "admin" */
@@ -808,6 +815,11 @@ export type Uuid_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['uuid']['input']>>;
 };
 
+export type AdminGetMeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AdminGetMeQuery = { __typename?: 'query_root', adminGetMe?: { __typename?: 'AdminGetOutput', id: string, username: string } | null };
+
 export type AdminLoginQueryVariables = Exact<{
   password: Scalars['String']['input'];
   username: Scalars['String']['input'];
@@ -817,6 +829,14 @@ export type AdminLoginQueryVariables = Exact<{
 export type AdminLoginQuery = { __typename?: 'query_root', adminLogin?: { __typename?: 'AdminLoginOutput', accessToken: string } | null };
 
 
+export const AdminGetMeDocument = gql`
+    query AdminGetMe {
+  adminGetMe {
+    id
+    username
+  }
+}
+    `;
 export const AdminLoginDocument = gql`
     query AdminLogin($password: String!, $username: String!) {
   adminLogin(admin: {password: $password, username: $username}) {
@@ -832,6 +852,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    AdminGetMe(variables?: AdminGetMeQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<AdminGetMeQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<AdminGetMeQuery>(AdminGetMeDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AdminGetMe', 'query');
+    },
     AdminLogin(variables: AdminLoginQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<AdminLoginQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<AdminLoginQuery>(AdminLoginDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AdminLogin', 'query');
     }
