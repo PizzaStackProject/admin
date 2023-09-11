@@ -18,12 +18,6 @@ interface CloudinaryInputUIProps {
   onImageSelected: (image: File) => void;
 }
 
-const cutImageName = (value: string) => {
-  const split = value.split("/");
-  const imageName = split[split.length - 2] + "/" + split[split.length - 1];
-  return imageName;
-};
-
 export const CloudinaryInputUI: FC<CloudinaryInputUIProps> = ({
   label,
   disabled,
@@ -46,7 +40,7 @@ export const CloudinaryInputUI: FC<CloudinaryInputUIProps> = ({
     inputRef.current?.click();
   };
 
-  const image = cloudinary.image(cutImageName(value ?? " "));
+  const image = cloudinary.image(value);
 
   image.addTransformation('w_384,h_247,dpr_2.0');
 

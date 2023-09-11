@@ -6,7 +6,7 @@ import { CloudinaryInput } from "@app/common/components/cloudinary-input/cloudin
 export const MenuEdit = () => {
 
   return (
-    <Edit title={<MenuEditTitle />}>
+    <Edit title={<MenuEditTitle />} mutationMode="pessimistic">
       <SimpleForm>
         <TextInput disabled source="id" />
         <TextInput source="title" fullWidth />

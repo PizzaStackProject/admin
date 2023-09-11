@@ -1,21 +1,28 @@
 import { FC } from "react";
-import { InputProps, useNotify, useRecordContext } from "react-admin";
+import { InputProps, useInput, useNotify, useRecordContext } from "react-admin";
 import { CloudinaryInputUI } from "../cloudinary-input-ui/cloudinary-input-ui.component";
 import { Menu, useCloudinarySignatureQuery } from "@app/core/types";
 import axios, { AxiosError } from "axios";
 import { CloudinaryUploadDTO } from "./cloudinary-upload.dto";
 import { useController } from "react-hook-form";
 
-export const CloudinaryInput: FC<InputProps> =  ({ label, source }) => {
+export const CloudinaryInput: FC<InputProps> = (props) => {
+
+
+  const {label,source} = props;
+
   const computedLabel = String(label) ?? source;
-  const { data: cloudSignature, loading } = useCloudinarySignatureQuery();
+  const { data: cloudSignature, loading } = useCloudinarySignatureQuery({
+    fetchPolicy: "network-only",
+  });
 
   const notify = useNotify();
 
-  const {field: {onChange, value}} = useController({name: source});
+  const {
+    field: { onChange, value },
+  } = useInput(props);
 
   const onImageSelected = async (image: File) => {
-
     if (!cloudSignature?.cloudinarySignature) {
       return;
     }
@@ -34,13 +41,12 @@ export const CloudinaryInput: FC<InputProps> =  ({ label, source }) => {
 
     let data: CloudinaryUploadDTO;
     try {
-      ({data} = await axios.post<CloudinaryUploadDTO>(url, formData));
-      
+      ({ data } = await axios.post<CloudinaryUploadDTO>(url, formData));
     } catch (error) {
       notify((error as AxiosError).message);
     }
 
-    onChange(data!.public_id)
+    onChange(data!.public_id);
   };
 
   return (
