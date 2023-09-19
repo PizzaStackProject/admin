@@ -1,4 +1,4 @@
-import { Datagrid, Edit, EditButton, FunctionField, List, NumberField, TextField, TextInput } from "react-admin";
+import { Datagrid, Edit, EditButton, FunctionField, List, NumberField, ReferenceField, TextField, TextInput } from "react-admin";
 import { MenuListExpand } from "../menu-list-expand/menu-list-expand.component";
 import { Menu } from "@app/core/types";
 
@@ -15,11 +15,13 @@ export const MenuList = () => {
         bulkActionButtons={false}
       >
         <TextField source="title" />
+        <ReferenceField source="category_id" reference="category" link={false}>
+          <TextField source="title" />
+        </ReferenceField>
         <FunctionField
           label="price"
           render={(record: Menu) => `${record.price}`}
         ></FunctionField>
-        <NumberField source="price" />
         <EditButton />
       </Datagrid>
     </List>
