@@ -1,9 +1,12 @@
-import { Datagrid, Edit, EditButton, FunctionField, List, NumberField, ReferenceField, TextField, TextInput } from "react-admin";
+import { Datagrid, Edit, EditButton, FunctionField, List, NumberField, ReferenceField, ReferenceInput, SelectInput, TextField, TextInput } from "react-admin";
 import { MenuListExpand } from "../menu-list-expand/menu-list-expand.component";
 import { Menu } from "@app/core/types";
 
 const filters = [
-  <TextInput source="title" label="Search" alwaysOn />,
+  <TextInput source="title" label="Search" />,
+  <ReferenceInput source="category_id" reference="category">
+    <SelectInput optionText="title" label={"Category"} />
+  </ReferenceInput>
 ]
 
 export const MenuList = () => {
