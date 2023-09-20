@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import {
   Admin,
   DataProvider,
-  EditGuesser,
-  ListGuesser,
   Loading,
   Resource,
 } from "react-admin";

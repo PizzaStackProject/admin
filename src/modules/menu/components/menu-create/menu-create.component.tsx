@@ -3,7 +3,7 @@ import { CloudinaryInput } from "@app/common/components/cloudinary-input/cloudin
 
 export const MenuCreate = () => {
   return (
-    <Create>
+    <Create title="Create new menu item">
       <SimpleForm>
         <TextInput source="title" fullWidth />
         <CloudinaryInput source="" label={"New photo"} />

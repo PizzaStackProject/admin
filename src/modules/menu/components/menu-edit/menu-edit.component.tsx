@@ -1,11 +1,12 @@
 import { Edit, NumberInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from "react-admin";
 import { CloudinaryInput } from "@app/common/components/cloudinary-input/cloudinary-input";
+import { EditTitle } from "@app/common/components/edit-title/edit-title";
 
 
 export const MenuEdit = () => {
 
   return (
-    <Edit title="Create new menu item" mutationMode="pessimistic">
+    <Edit title={<EditTitle source={"title"} />} mutationMode="pessimistic">
       <SimpleForm>
         <TextInput disabled source="id" />
         <TextInput source="title" fullWidth />

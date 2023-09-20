@@ -1,4 +1,4 @@
-import { Datagrid, Edit, EditButton, FunctionField, List, NumberField, ReferenceField, ReferenceInput, SelectInput, TextField, TextInput } from "react-admin";
+import { Datagrid, EditButton, FunctionField, List, ReferenceField, ReferenceInput, SelectInput, TextField, TextInput } from "react-admin";
 import { MenuListExpand } from "../menu-list-expand/menu-list-expand.component";
 import { Menu } from "@app/core/types";
 
