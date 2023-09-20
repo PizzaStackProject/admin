@@ -6,7 +6,6 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  Skeleton,
   Typography,
 } from "@mui/material";
 import { FC, useRef } from "react";
