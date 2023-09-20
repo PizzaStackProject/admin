@@ -1,10 +1,9 @@
 import { FC } from "react";
-import { InputProps, useInput, useNotify, useRecordContext } from "react-admin";
+import { InputProps, useInput, useNotify } from "react-admin";
 import { CloudinaryInputUI } from "../cloudinary-input-ui/cloudinary-input-ui.component";
-import { Menu, useCloudinarySignatureQuery } from "@app/core/types";
+import { useCloudinarySignatureQuery } from "@app/core/types";
 import axios, { AxiosError } from "axios";
 import { CloudinaryUploadDTO } from "./cloudinary-upload.dto";
-import { useController } from "react-hook-form";
 
 export const CloudinaryInput: FC<InputProps> = (props) => {
 

@@ -1,12 +1,11 @@
-import { source } from "@cloudinary/url-gen/actions/overlay"
 import { FC } from "react";
 import { useRecordContext } from "react-admin";
 
-interface EditTitle {
-    source: string;
+interface EditTitleProps {
+  source: string;
 }
 
-export const EditTitle:FC<EditTitle> = ({source}) => {
+export const EditTitle:FC<EditTitleProps> = ({source}) => {
     const record = useRecordContext();
 
     if(!record) return null;
