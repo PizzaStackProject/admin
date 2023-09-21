@@ -54,6 +54,19 @@ export type CloudinarySignatureOutput = {
   timestamp: Scalars['String']['output'];
 };
 
+/** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
+export type Int_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['Int']['input']>;
+  _gt?: InputMaybe<Scalars['Int']['input']>;
+  _gte?: InputMaybe<Scalars['Int']['input']>;
+  _in?: InputMaybe<Array<Scalars['Int']['input']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']['input']>;
+  _lt?: InputMaybe<Scalars['Int']['input']>;
+  _lte?: InputMaybe<Scalars['Int']['input']>;
+  _neq?: InputMaybe<Scalars['Int']['input']>;
+  _nin?: InputMaybe<Array<Scalars['Int']['input']>>;
+};
+
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type String_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['String']['input']>;
@@ -235,6 +248,187 @@ export type Admin_Updates = {
   where: Admin_Bool_Exp;
 };
 
+/** columns and relationships of "category" */
+export type Category = {
+  __typename?: 'category';
+  id: Scalars['uuid']['output'];
+  /** An array relationship */
+  menu_items: Array<Menu>;
+  /** An aggregate relationship */
+  menu_items_aggregate: Menu_Aggregate;
+  slug: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+/** columns and relationships of "category" */
+export type CategoryMenu_ItemsArgs = {
+  distinct_on?: InputMaybe<Array<Menu_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Menu_Order_By>>;
+  where?: InputMaybe<Menu_Bool_Exp>;
+};
+
+
+/** columns and relationships of "category" */
+export type CategoryMenu_Items_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Menu_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Menu_Order_By>>;
+  where?: InputMaybe<Menu_Bool_Exp>;
+};
+
+/** aggregated selection of "category" */
+export type Category_Aggregate = {
+  __typename?: 'category_aggregate';
+  aggregate?: Maybe<Category_Aggregate_Fields>;
+  nodes: Array<Category>;
+};
+
+/** aggregate fields of "category" */
+export type Category_Aggregate_Fields = {
+  __typename?: 'category_aggregate_fields';
+  count: Scalars['Int']['output'];
+  max?: Maybe<Category_Max_Fields>;
+  min?: Maybe<Category_Min_Fields>;
+};
+
+
+/** aggregate fields of "category" */
+export type Category_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Category_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** Boolean expression to filter rows from the table "category". All fields are combined with a logical 'AND'. */
+export type Category_Bool_Exp = {
+  _and?: InputMaybe<Array<Category_Bool_Exp>>;
+  _not?: InputMaybe<Category_Bool_Exp>;
+  _or?: InputMaybe<Array<Category_Bool_Exp>>;
+  id?: InputMaybe<Uuid_Comparison_Exp>;
+  menu_items?: InputMaybe<Menu_Bool_Exp>;
+  menu_items_aggregate?: InputMaybe<Menu_Aggregate_Bool_Exp>;
+  slug?: InputMaybe<String_Comparison_Exp>;
+  title?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "category" */
+export enum Category_Constraint {
+  /** unique or primary key constraint on columns "id" */
+  CategoryPkey = 'category_pkey'
+}
+
+/** input type for inserting data into table "category" */
+export type Category_Insert_Input = {
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  menu_items?: InputMaybe<Menu_Arr_Rel_Insert_Input>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** aggregate max on columns */
+export type Category_Max_Fields = {
+  __typename?: 'category_max_fields';
+  id?: Maybe<Scalars['uuid']['output']>;
+  slug?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+/** aggregate min on columns */
+export type Category_Min_Fields = {
+  __typename?: 'category_min_fields';
+  id?: Maybe<Scalars['uuid']['output']>;
+  slug?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+/** response of any mutation on the table "category" */
+export type Category_Mutation_Response = {
+  __typename?: 'category_mutation_response';
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int']['output'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Category>;
+};
+
+/** input type for inserting object relation for remote table "category" */
+export type Category_Obj_Rel_Insert_Input = {
+  data: Category_Insert_Input;
+  /** upsert condition */
+  on_conflict?: InputMaybe<Category_On_Conflict>;
+};
+
+/** on_conflict condition type for table "category" */
+export type Category_On_Conflict = {
+  constraint: Category_Constraint;
+  update_columns?: Array<Category_Update_Column>;
+  where?: InputMaybe<Category_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "category". */
+export type Category_Order_By = {
+  id?: InputMaybe<Order_By>;
+  menu_items_aggregate?: InputMaybe<Menu_Aggregate_Order_By>;
+  slug?: InputMaybe<Order_By>;
+  title?: InputMaybe<Order_By>;
+};
+
+/** primary key columns input for table: category */
+export type Category_Pk_Columns_Input = {
+  id: Scalars['uuid']['input'];
+};
+
+/** select columns of table "category" */
+export enum Category_Select_Column {
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Slug = 'slug',
+  /** column name */
+  Title = 'title'
+}
+
+/** input type for updating data in table "category" */
+export type Category_Set_Input = {
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** Streaming cursor of the table "category" */
+export type Category_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Category_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Category_Stream_Cursor_Value_Input = {
+  id?: InputMaybe<Scalars['uuid']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** update columns of table "category" */
+export enum Category_Update_Column {
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Slug = 'slug',
+  /** column name */
+  Title = 'title'
+}
+
+export type Category_Updates = {
+  /** sets the columns of the filtered rows to the given values */
+  _set?: InputMaybe<Category_Set_Input>;
+  /** filter the rows which have to be updated */
+  where: Category_Bool_Exp;
+};
+
 /** ordering argument of a cursor */
 export enum Cursor_Ordering {
   /** ascending ordering of the cursor */
@@ -246,9 +440,12 @@ export enum Cursor_Ordering {
 /** columns and relationships of "menu" */
 export type Menu = {
   __typename?: 'menu';
+  category_id?: Maybe<Scalars['uuid']['output']>;
   id: Scalars['uuid']['output'];
-  image: Scalars['String']['output'];
-  ingredients: Scalars['String']['output'];
+  image?: Maybe<Scalars['String']['output']>;
+  ingredients?: Maybe<Scalars['String']['output']>;
+  /** An object relationship */
+  menu_category?: Maybe<Category>;
   price: Scalars['numeric']['output'];
   title: Scalars['String']['output'];
   weight: Scalars['numeric']['output'];
@@ -259,6 +456,17 @@ export type Menu_Aggregate = {
   __typename?: 'menu_aggregate';
   aggregate?: Maybe<Menu_Aggregate_Fields>;
   nodes: Array<Menu>;
+};
+
+export type Menu_Aggregate_Bool_Exp = {
+  count?: InputMaybe<Menu_Aggregate_Bool_Exp_Count>;
+};
+
+export type Menu_Aggregate_Bool_Exp_Count = {
+  arguments?: InputMaybe<Array<Menu_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']['input']>;
+  filter?: InputMaybe<Menu_Bool_Exp>;
+  predicate: Int_Comparison_Exp;
 };
 
 /** aggregate fields of "menu" */
@@ -284,6 +492,28 @@ export type Menu_Aggregate_FieldsCountArgs = {
   distinct?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+/** order by aggregate values of table "menu" */
+export type Menu_Aggregate_Order_By = {
+  avg?: InputMaybe<Menu_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Menu_Max_Order_By>;
+  min?: InputMaybe<Menu_Min_Order_By>;
+  stddev?: InputMaybe<Menu_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Menu_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Menu_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Menu_Sum_Order_By>;
+  var_pop?: InputMaybe<Menu_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Menu_Var_Samp_Order_By>;
+  variance?: InputMaybe<Menu_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "menu" */
+export type Menu_Arr_Rel_Insert_Input = {
+  data: Array<Menu_Insert_Input>;
+  /** upsert condition */
+  on_conflict?: InputMaybe<Menu_On_Conflict>;
+};
+
 /** aggregate avg on columns */
 export type Menu_Avg_Fields = {
   __typename?: 'menu_avg_fields';
@@ -291,14 +521,22 @@ export type Menu_Avg_Fields = {
   weight?: Maybe<Scalars['Float']['output']>;
 };
 
+/** order by avg() on columns of table "menu" */
+export type Menu_Avg_Order_By = {
+  price?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
+};
+
 /** Boolean expression to filter rows from the table "menu". All fields are combined with a logical 'AND'. */
 export type Menu_Bool_Exp = {
   _and?: InputMaybe<Array<Menu_Bool_Exp>>;
   _not?: InputMaybe<Menu_Bool_Exp>;
   _or?: InputMaybe<Array<Menu_Bool_Exp>>;
+  category_id?: InputMaybe<Uuid_Comparison_Exp>;
   id?: InputMaybe<Uuid_Comparison_Exp>;
   image?: InputMaybe<String_Comparison_Exp>;
   ingredients?: InputMaybe<String_Comparison_Exp>;
+  menu_category?: InputMaybe<Category_Bool_Exp>;
   price?: InputMaybe<Numeric_Comparison_Exp>;
   title?: InputMaybe<String_Comparison_Exp>;
   weight?: InputMaybe<Numeric_Comparison_Exp>;
@@ -318,9 +556,11 @@ export type Menu_Inc_Input = {
 
 /** input type for inserting data into table "menu" */
 export type Menu_Insert_Input = {
+  category_id?: InputMaybe<Scalars['uuid']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   image?: InputMaybe<Scalars['String']['input']>;
   ingredients?: InputMaybe<Scalars['String']['input']>;
+  menu_category?: InputMaybe<Category_Obj_Rel_Insert_Input>;
   price?: InputMaybe<Scalars['numeric']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   weight?: InputMaybe<Scalars['numeric']['input']>;
@@ -329,6 +569,7 @@ export type Menu_Insert_Input = {
 /** aggregate max on columns */
 export type Menu_Max_Fields = {
   __typename?: 'menu_max_fields';
+  category_id?: Maybe<Scalars['uuid']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   image?: Maybe<Scalars['String']['output']>;
   ingredients?: Maybe<Scalars['String']['output']>;
@@ -337,15 +578,38 @@ export type Menu_Max_Fields = {
   weight?: Maybe<Scalars['numeric']['output']>;
 };
 
+/** order by max() on columns of table "menu" */
+export type Menu_Max_Order_By = {
+  category_id?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  image?: InputMaybe<Order_By>;
+  ingredients?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+  title?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
+};
+
 /** aggregate min on columns */
 export type Menu_Min_Fields = {
   __typename?: 'menu_min_fields';
+  category_id?: Maybe<Scalars['uuid']['output']>;
   id?: Maybe<Scalars['uuid']['output']>;
   image?: Maybe<Scalars['String']['output']>;
   ingredients?: Maybe<Scalars['String']['output']>;
   price?: Maybe<Scalars['numeric']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   weight?: Maybe<Scalars['numeric']['output']>;
+};
+
+/** order by min() on columns of table "menu" */
+export type Menu_Min_Order_By = {
+  category_id?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  image?: InputMaybe<Order_By>;
+  ingredients?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+  title?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "menu" */
@@ -366,9 +630,11 @@ export type Menu_On_Conflict = {
 
 /** Ordering options when selecting data from "menu". */
 export type Menu_Order_By = {
+  category_id?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   image?: InputMaybe<Order_By>;
   ingredients?: InputMaybe<Order_By>;
+  menu_category?: InputMaybe<Category_Order_By>;
   price?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
   weight?: InputMaybe<Order_By>;
@@ -381,6 +647,8 @@ export type Menu_Pk_Columns_Input = {
 
 /** select columns of table "menu" */
 export enum Menu_Select_Column {
+  /** column name */
+  CategoryId = 'category_id',
   /** column name */
   Id = 'id',
   /** column name */
@@ -397,6 +665,7 @@ export enum Menu_Select_Column {
 
 /** input type for updating data in table "menu" */
 export type Menu_Set_Input = {
+  category_id?: InputMaybe<Scalars['uuid']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   image?: InputMaybe<Scalars['String']['input']>;
   ingredients?: InputMaybe<Scalars['String']['input']>;
@@ -412,6 +681,12 @@ export type Menu_Stddev_Fields = {
   weight?: Maybe<Scalars['Float']['output']>;
 };
 
+/** order by stddev() on columns of table "menu" */
+export type Menu_Stddev_Order_By = {
+  price?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
+};
+
 /** aggregate stddev_pop on columns */
 export type Menu_Stddev_Pop_Fields = {
   __typename?: 'menu_stddev_pop_fields';
@@ -419,11 +694,23 @@ export type Menu_Stddev_Pop_Fields = {
   weight?: Maybe<Scalars['Float']['output']>;
 };
 
+/** order by stddev_pop() on columns of table "menu" */
+export type Menu_Stddev_Pop_Order_By = {
+  price?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
+};
+
 /** aggregate stddev_samp on columns */
 export type Menu_Stddev_Samp_Fields = {
   __typename?: 'menu_stddev_samp_fields';
   price?: Maybe<Scalars['Float']['output']>;
   weight?: Maybe<Scalars['Float']['output']>;
+};
+
+/** order by stddev_samp() on columns of table "menu" */
+export type Menu_Stddev_Samp_Order_By = {
+  price?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
 };
 
 /** Streaming cursor of the table "menu" */
@@ -436,6 +723,7 @@ export type Menu_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Menu_Stream_Cursor_Value_Input = {
+  category_id?: InputMaybe<Scalars['uuid']['input']>;
   id?: InputMaybe<Scalars['uuid']['input']>;
   image?: InputMaybe<Scalars['String']['input']>;
   ingredients?: InputMaybe<Scalars['String']['input']>;
@@ -451,8 +739,16 @@ export type Menu_Sum_Fields = {
   weight?: Maybe<Scalars['numeric']['output']>;
 };
 
+/** order by sum() on columns of table "menu" */
+export type Menu_Sum_Order_By = {
+  price?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
+};
+
 /** update columns of table "menu" */
 export enum Menu_Update_Column {
+  /** column name */
+  CategoryId = 'category_id',
   /** column name */
   Id = 'id',
   /** column name */
@@ -483,6 +779,12 @@ export type Menu_Var_Pop_Fields = {
   weight?: Maybe<Scalars['Float']['output']>;
 };
 
+/** order by var_pop() on columns of table "menu" */
+export type Menu_Var_Pop_Order_By = {
+  price?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
+};
+
 /** aggregate var_samp on columns */
 export type Menu_Var_Samp_Fields = {
   __typename?: 'menu_var_samp_fields';
@@ -490,11 +792,23 @@ export type Menu_Var_Samp_Fields = {
   weight?: Maybe<Scalars['Float']['output']>;
 };
 
+/** order by var_samp() on columns of table "menu" */
+export type Menu_Var_Samp_Order_By = {
+  price?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
+};
+
 /** aggregate variance on columns */
 export type Menu_Variance_Fields = {
   __typename?: 'menu_variance_fields';
   price?: Maybe<Scalars['Float']['output']>;
   weight?: Maybe<Scalars['Float']['output']>;
+};
+
+/** order by variance() on columns of table "menu" */
+export type Menu_Variance_Order_By = {
+  price?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
 };
 
 /** mutation root */
@@ -506,6 +820,10 @@ export type Mutation_Root = {
   delete_admin?: Maybe<Admin_Mutation_Response>;
   /** delete single row from the table: "admin" */
   delete_admin_by_pk?: Maybe<Admin>;
+  /** delete data from the table: "category" */
+  delete_category?: Maybe<Category_Mutation_Response>;
+  /** delete single row from the table: "category" */
+  delete_category_by_pk?: Maybe<Category>;
   /** delete data from the table: "menu" */
   delete_menu?: Maybe<Menu_Mutation_Response>;
   /** delete single row from the table: "menu" */
@@ -514,6 +832,10 @@ export type Mutation_Root = {
   insert_admin?: Maybe<Admin_Mutation_Response>;
   /** insert a single row into the table: "admin" */
   insert_admin_one?: Maybe<Admin>;
+  /** insert data into the table: "category" */
+  insert_category?: Maybe<Category_Mutation_Response>;
+  /** insert a single row into the table: "category" */
+  insert_category_one?: Maybe<Category>;
   /** insert data into the table: "menu" */
   insert_menu?: Maybe<Menu_Mutation_Response>;
   /** insert a single row into the table: "menu" */
@@ -524,6 +846,12 @@ export type Mutation_Root = {
   update_admin_by_pk?: Maybe<Admin>;
   /** update multiples rows of table: "admin" */
   update_admin_many?: Maybe<Array<Maybe<Admin_Mutation_Response>>>;
+  /** update data of the table: "category" */
+  update_category?: Maybe<Category_Mutation_Response>;
+  /** update single row of the table: "category" */
+  update_category_by_pk?: Maybe<Category>;
+  /** update multiples rows of table: "category" */
+  update_category_many?: Maybe<Array<Maybe<Category_Mutation_Response>>>;
   /** update data of the table: "menu" */
   update_menu?: Maybe<Menu_Mutation_Response>;
   /** update single row of the table: "menu" */
@@ -552,6 +880,18 @@ export type Mutation_RootDelete_Admin_By_PkArgs = {
 
 
 /** mutation root */
+export type Mutation_RootDelete_CategoryArgs = {
+  where: Category_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Category_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
+/** mutation root */
 export type Mutation_RootDelete_MenuArgs = {
   where: Menu_Bool_Exp;
 };
@@ -574,6 +914,20 @@ export type Mutation_RootInsert_AdminArgs = {
 export type Mutation_RootInsert_Admin_OneArgs = {
   object: Admin_Insert_Input;
   on_conflict?: InputMaybe<Admin_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_CategoryArgs = {
+  objects: Array<Category_Insert_Input>;
+  on_conflict?: InputMaybe<Category_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Category_OneArgs = {
+  object: Category_Insert_Input;
+  on_conflict?: InputMaybe<Category_On_Conflict>;
 };
 
 
@@ -608,6 +962,26 @@ export type Mutation_RootUpdate_Admin_By_PkArgs = {
 /** mutation root */
 export type Mutation_RootUpdate_Admin_ManyArgs = {
   updates: Array<Admin_Updates>;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_CategoryArgs = {
+  _set?: InputMaybe<Category_Set_Input>;
+  where: Category_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Category_By_PkArgs = {
+  _set?: InputMaybe<Category_Set_Input>;
+  pk_columns: Category_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Category_ManyArgs = {
+  updates: Array<Category_Updates>;
 };
 
 
@@ -672,6 +1046,12 @@ export type Query_Root = {
   admin_aggregate: Admin_Aggregate;
   /** fetch data from the table: "admin" using primary key columns */
   admin_by_pk?: Maybe<Admin>;
+  /** fetch data from the table: "category" */
+  category: Array<Category>;
+  /** fetch aggregated fields from the table: "category" */
+  category_aggregate: Category_Aggregate;
+  /** fetch data from the table: "category" using primary key columns */
+  category_by_pk?: Maybe<Category>;
   /** cloudinarySignature */
   cloudinarySignature?: Maybe<CloudinarySignatureOutput>;
   /** fetch data from the table: "menu" */
@@ -711,6 +1091,29 @@ export type Query_RootAdmin_By_PkArgs = {
 };
 
 
+export type Query_RootCategoryArgs = {
+  distinct_on?: InputMaybe<Array<Category_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Category_Order_By>>;
+  where?: InputMaybe<Category_Bool_Exp>;
+};
+
+
+export type Query_RootCategory_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Category_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Category_Order_By>>;
+  where?: InputMaybe<Category_Bool_Exp>;
+};
+
+
+export type Query_RootCategory_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
 export type Query_RootMenuArgs = {
   distinct_on?: InputMaybe<Array<Menu_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -743,6 +1146,14 @@ export type Subscription_Root = {
   admin_by_pk?: Maybe<Admin>;
   /** fetch data from the table in a streaming manner: "admin" */
   admin_stream: Array<Admin>;
+  /** fetch data from the table: "category" */
+  category: Array<Category>;
+  /** fetch aggregated fields from the table: "category" */
+  category_aggregate: Category_Aggregate;
+  /** fetch data from the table: "category" using primary key columns */
+  category_by_pk?: Maybe<Category>;
+  /** fetch data from the table in a streaming manner: "category" */
+  category_stream: Array<Category>;
   /** fetch data from the table: "menu" */
   menu: Array<Menu>;
   /** fetch aggregated fields from the table: "menu" */
@@ -781,6 +1192,36 @@ export type Subscription_RootAdmin_StreamArgs = {
   batch_size: Scalars['Int']['input'];
   cursor: Array<InputMaybe<Admin_Stream_Cursor_Input>>;
   where?: InputMaybe<Admin_Bool_Exp>;
+};
+
+
+export type Subscription_RootCategoryArgs = {
+  distinct_on?: InputMaybe<Array<Category_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Category_Order_By>>;
+  where?: InputMaybe<Category_Bool_Exp>;
+};
+
+
+export type Subscription_RootCategory_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Category_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  order_by?: InputMaybe<Array<Category_Order_By>>;
+  where?: InputMaybe<Category_Bool_Exp>;
+};
+
+
+export type Subscription_RootCategory_By_PkArgs = {
+  id: Scalars['uuid']['input'];
+};
+
+
+export type Subscription_RootCategory_StreamArgs = {
+  batch_size: Scalars['Int']['input'];
+  cursor: Array<InputMaybe<Category_Stream_Cursor_Input>>;
+  where?: InputMaybe<Category_Bool_Exp>;
 };
 
 

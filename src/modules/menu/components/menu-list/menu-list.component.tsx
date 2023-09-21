@@ -1,6 +1,7 @@
 import { Datagrid, EditButton, FunctionField, List, ReferenceField, ReferenceInput, SelectInput, TextField, TextInput } from "react-admin";
 import { MenuListExpand } from "../menu-list-expand/menu-list-expand.component";
 import { Menu } from "@app/core/types";
+import { config } from "@app/core/config";
 
 const filters = [
   <TextInput source="title" label="Search" />,
@@ -16,6 +17,9 @@ export const MenuList = () => {
         rowClick="expand"
         expand={MenuListExpand}
         bulkActionButtons={false}
+        isRowExpandable={(row: Menu) =>
+          row.category_id !== config.drinkCategoryId
+        }
       >
         <TextField source="title" />
         <ReferenceField source="category_id" reference="category" link={false}>
