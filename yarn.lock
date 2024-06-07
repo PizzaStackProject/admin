@@ -1200,6 +1200,13 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@babel/runtime@^7.23.9":
+  version "7.24.7"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.7.tgz#f4f0d5530e8dbdf59b3451b9b3e594b6ba082e12"
+  integrity sha512-UwgBRMjJP+xv857DCngvqXI3Iq6J4v0wXmwc6sapg+zyhbwmQX67LUEFrkK5tbyJ30jGuG3ZvWpBiB9LCy1kWw==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
 "@babel/template@^7.18.10", "@babel/template@^7.22.15", "@babel/template@^7.22.5", "@babel/template@^7.3.3":
   version "7.22.15"
   resolved "https://registry.npmjs.org/@babel/template/-/template-7.22.15.tgz"
@@ -2566,6 +2573,13 @@
   integrity sha512-YXcReLydTuNWb1/PxduAH5LgnHNH6spSQBaA0JOz9HD4J+vwst0IanAQgsXy9KKCJSjCsHywE3DB8X+w/b4eeQ==
   dependencies:
     "@babel/runtime" "^7.22.10"
+
+"@mui/icons-material@^5.15.19":
+  version "5.15.19"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.15.19.tgz#0602da80d814af662812659eab891e435ec0d5c0"
+  integrity sha512-RsEiRxA5azN9b8gI7JRqekkgvxQUlitoBOtZglflb8cUDyP12/cP4gRwhb44Ea1/zwwGGjAj66ZJpGHhKfibNA==
+  dependencies:
+    "@babel/runtime" "^7.23.9"
 
 "@mui/material@^5.0.2", "@mui/material@^5.14.8":
   version "5.14.8"
@@ -12036,10 +12050,10 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-ra-core@^4.13.3:
-  version "4.13.3"
-  resolved "https://registry.npmjs.org/ra-core/-/ra-core-4.13.3.tgz"
-  integrity sha512-OUsXs+Ffx7xrn0I8rI1YpHSt9apkrjVn6pl3c57NgFiLXr3gyVMpqcI3Sl/amftJNdMM3wtnUnG3WGQw3Nej6g==
+ra-core@^4.16.17:
+  version "4.16.17"
+  resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-4.16.17.tgz#35a5fe689e42ade1bf430bbe96f0100175ae03cf"
+  integrity sha512-85dpwo6D5nv/UTJJxBqYFWP8H4O4bc+prL8ar8Trb4om2X75zK6FsW/4ZXKlhrRPM+fP+s/v3xYrFjTo/zT4hQ==
   dependencies:
     clsx "^1.1.1"
     date-fns "^2.19.0"
@@ -12061,34 +12075,34 @@ ra-data-graphql@^4.6.0:
     lodash "~4.17.5"
     pluralize "~7.0.0"
 
-ra-data-hasura@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.npmjs.org/ra-data-hasura/-/ra-data-hasura-0.6.0.tgz"
-  integrity sha512-WzxgC+IC56++adNVgWflPM6bEp+ZWAEuKjtHp4V6efcGADcatvMxXCF9MIVs1TF7Ta5gJVzJqQzdEdKyxOq5ow==
+ra-data-hasura@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/ra-data-hasura/-/ra-data-hasura-0.6.1.tgz#2a37ed95a34644667241e5638ce9a8390244ca26"
+  integrity sha512-qgPHoZKCbnsX5m3ZCEWk/yXsrV+DD7DlncpLYiKHve5MeQUdp1jWvfIPZ63AfgmijynumsDHrkM3WZ8jpUj5uA==
   dependencies:
     graphql "^16.6.0"
     lodash "^4.17.21"
     ra-data-graphql "^4.6.0"
 
-ra-i18n-polyglot@^4.13.3:
-  version "4.13.3"
-  resolved "https://registry.npmjs.org/ra-i18n-polyglot/-/ra-i18n-polyglot-4.13.3.tgz"
-  integrity sha512-Vvrz/yUQ0cxb7vQmw2aIgfYEHhX+NyHZN/aFruAEEkuJ4Kp2bo1IG0PpXjO2ghoTN35ltWT4Kncrz9X2x+ue2A==
+ra-i18n-polyglot@^4.16.17:
+  version "4.16.17"
+  resolved "https://registry.yarnpkg.com/ra-i18n-polyglot/-/ra-i18n-polyglot-4.16.17.tgz#a829b368eee7e8165769b8e96a89d5bdb9bfda08"
+  integrity sha512-ZsXqWg+F06rdavgKF/ZzI+3N5xtgZAOnpnFOdKaEOUMTHE+p7E512St/EkqS52FfCqQNpLkZ/zsZRJkIutmNZg==
   dependencies:
     node-polyglot "^2.2.2"
-    ra-core "^4.13.3"
+    ra-core "^4.16.17"
 
-ra-language-english@^4.13.3:
-  version "4.13.3"
-  resolved "https://registry.npmjs.org/ra-language-english/-/ra-language-english-4.13.3.tgz"
-  integrity sha512-ZOhz/HkS5EKrI8vP+S9neCMhzj8QmCA0i9+fDN69QwoPB91eq81SCoyYpMuXSvJMPU7ODDJQDdFfEH7+vP2GIw==
+ra-language-english@^4.16.17:
+  version "4.16.17"
+  resolved "https://registry.yarnpkg.com/ra-language-english/-/ra-language-english-4.16.17.tgz#fa16517458057133f9aaa6023288998b08411f71"
+  integrity sha512-ypvlZ+2jXVvLaeTp/Ri470TdAOjiQXecEITBs2r9fQdWU4NFTzU25nwq6LhWbFLFHSiJkw86OLR3T1Hd/veBlg==
   dependencies:
-    ra-core "^4.13.3"
+    ra-core "^4.16.17"
 
-ra-ui-materialui@^4.13.3:
-  version "4.13.3"
-  resolved "https://registry.npmjs.org/ra-ui-materialui/-/ra-ui-materialui-4.13.3.tgz"
-  integrity sha512-Xhn1LFPQLvYZFNf7al6Cfn/5Si19SyG7MiOqI/xNjzJCJ7IAQGid+tVCpLGhUc1uejV5ZK5NNB7bdLEw8jUfiw==
+ra-ui-materialui@^4.16.18:
+  version "4.16.18"
+  resolved "https://registry.yarnpkg.com/ra-ui-materialui/-/ra-ui-materialui-4.16.18.tgz#4aec4d17cfe21c1a828565c28bffe1ea134f59a1"
+  integrity sha512-vVLGVW3CZuTIptQylhwmMgkD26wppTd3AFoa8h1S0wdO0IUs3DiyD/RiWNbshVdhXOug4CocSYwfaY+eR+mqMw==
   dependencies:
     autosuggest-highlight "^3.1.1"
     clsx "^1.1.1"
@@ -12139,20 +12153,20 @@ raw-body@2.5.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-admin@^4.13.3:
-  version "4.13.3"
-  resolved "https://registry.npmjs.org/react-admin/-/react-admin-4.13.3.tgz"
-  integrity sha512-b2TfINBaIFPNmra6QwGufFLRFJ+Qxu3VGe0h3tVD7EBN2XnnO2L99D2Ypw91RyhSFxshsvsXG8AMZmT7M30zNQ==
+react-admin@^4.16.18:
+  version "4.16.18"
+  resolved "https://registry.yarnpkg.com/react-admin/-/react-admin-4.16.18.tgz#8c4feb0f3128334acfeacb3ba26224326d872875"
+  integrity sha512-KOBKFFMkPmTaAChH7EOuNV4AeNN8iVMVIeDkXU1wbguafLCwV8goeguWgZHzafVhtdOjsxdYKezfBGBIKnEbBA==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"
     "@mui/icons-material" "^5.0.1"
     "@mui/material" "^5.0.2"
     history "^5.1.0"
-    ra-core "^4.13.3"
-    ra-i18n-polyglot "^4.13.3"
-    ra-language-english "^4.13.3"
-    ra-ui-materialui "^4.13.3"
+    ra-core "^4.16.17"
+    ra-i18n-polyglot "^4.16.17"
+    ra-language-english "^4.16.17"
+    ra-ui-materialui "^4.16.18"
     react-hook-form "^7.43.9"
     react-router "^6.1.0"
     react-router-dom "^6.1.0"
@@ -13385,7 +13399,16 @@ string-natural-compare@^3.0.1:
   resolved "https://registry.npmjs.org/string-natural-compare/-/string-natural-compare-3.0.1.tgz"
   integrity sha512-n3sPwynL1nwKi3WJ6AIsClwBMa0zTi54fn2oLU6ndfTSIO05xaznjSf15PcBZU6FNWbmN5Q6cxT4V5hGvB4taw==
 
-"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
+"string-width-cjs@npm:string-width@^4.2.0":
+  version "4.2.3"
+  resolved "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz"
+  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
+
+string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
   version "4.2.3"
   resolved "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -13467,7 +13490,14 @@ stringify-object@^3.3.0:
     is-obj "^1.0.1"
     is-regexp "^1.0.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -14956,7 +14986,7 @@ workbox-window@6.6.1:
     "@types/trusted-types" "^2.0.2"
     workbox-core "6.6.1"
 
-"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
   version "7.0.0"
   resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
@@ -14969,6 +14999,15 @@ wrap-ansi@^6.0.1, wrap-ansi@^6.2.0:
   version "6.2.0"
   resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-6.2.0.tgz"
   integrity sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA==
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
+wrap-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
+  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
   dependencies:
     ansi-styles "^4.0.0"
     string-width "^4.1.0"
