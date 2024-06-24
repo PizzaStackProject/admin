@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@graphql-codegen/typescript-graphql-request": "^5.0.0",
     "@graphql-codegen/typescript-react-apollo": "^3.3.7",
+    "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.14.8",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
