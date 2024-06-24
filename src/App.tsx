@@ -1,13 +1,6 @@
 import { CssBaseline } from "@mui/material";
 import { useEffect, useState } from "react";
-import {
-  Admin,
-  DataProvider,
-  Edit,
-  EditGuesser,
-  Loading,
-  Resource,
-} from "react-admin";
+import { Admin, DataProvider, Loading, Resource } from "react-admin";
 import { MenuList } from "@app/modules/menu/components/menu-list/menu-list.component";
 import { MenuEdit } from "@app/modules/menu/components/menu-edit/menu-edit.component";
 import { MenuCreate } from "@app/modules/menu/components/menu-create/menu-create.component";
@@ -27,6 +20,7 @@ import CategoryIcon from "@mui/icons-material/Category";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
 import { buildDataProvider } from "@app/core/data-provider";
+import { OrderCreate } from "./modules/orders/components/order-create/order-create.component";
 
 export const App = () => {
   const [dataProvider, setDataProvider] = useState<DataProvider<string> | null>(
@@ -73,6 +67,7 @@ export const App = () => {
           list={OrderList}
           edit={OrderEdit}
           show={OrderShow}
+          create={OrderCreate}
           icon={ShoppingBagIcon}
         />
         <Resource name="order_status" />
