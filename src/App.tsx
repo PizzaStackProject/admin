@@ -1,26 +1,12 @@
 import { CssBaseline } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Admin, DataProvider, Loading, Resource } from "react-admin";
-import { MenuList } from "@app/modules/menu/components/menu-list/menu-list.component";
-import { MenuEdit } from "@app/modules/menu/components/menu-edit/menu-edit.component";
-import { MenuCreate } from "@app/modules/menu/components/menu-create/menu-create.component";
 import { authProvider } from "./core/auth-provider";
 import { theme } from "@app/core/theme";
-
-import { CategoriesList } from "./modules/categories/components/categories-list/categories-list";
-import { CategoryEdit } from "./modules/categories/components/category-edit/category-edit";
-import { CategoryCreate } from "./modules/categories/components/category-create/category-create";
-
-import { OrderList } from "@app/modules/orders/components/order-list/order-list.component";
-import { OrderShow } from "@app/modules/orders/components/order-show/order-show.component";
-import { OrderEdit } from "@app/modules/orders/components/order-edit/order-edit.component";
-
-import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
-import CategoryIcon from "@mui/icons-material/Category";
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-
 import { buildDataProvider } from "@app/core/data-provider";
-import { OrderCreate } from "./modules/orders/components/order-create/order-create.component";
+import { MenuResource } from "./modules/menu/menu.resource";
+import { OrderResource } from "./modules/orders/order.resource";
+import { CategoryResource } from "./modules/categories/category.resource";
 
 export const App = () => {
   const [dataProvider, setDataProvider] = useState<DataProvider<string> | null>(
@@ -48,28 +34,9 @@ export const App = () => {
         requireAuth
         theme={theme}
       >
-        <Resource
-          name="menu"
-          list={MenuList}
-          edit={MenuEdit}
-          create={MenuCreate}
-          icon={RestaurantMenuIcon}
-        />
-        <Resource
-          name="category"
-          list={CategoriesList}
-          edit={CategoryEdit}
-          create={CategoryCreate}
-          icon={CategoryIcon}
-        />
-        <Resource
-          name="orders"
-          list={OrderList}
-          edit={OrderEdit}
-          show={OrderShow}
-          create={OrderCreate}
-          icon={ShoppingBagIcon}
-        />
+        <Resource {...MenuResource} />
+        <Resource {...CategoryResource} />
+        <Resource {...OrderResource} />
         <Resource name="order_status" />
         <Resource name="orders_menu" />
       </Admin>
