@@ -7,6 +7,7 @@ import { buildDataProvider } from "@app/core/data-provider";
 import { MenuResource } from "./modules/menu/menu.resource";
 import { OrderResource } from "./modules/orders/order.resource";
 import { CategoryResource } from "./modules/categories/category.resource";
+import { Dashboard } from "./modules/dashboard/components/dashboard/dashboard.component";
 
 export const App = () => {
   const [dataProvider, setDataProvider] = useState<DataProvider<string> | null>(
@@ -33,6 +34,7 @@ export const App = () => {
         authProvider={authProvider}
         requireAuth
         theme={theme}
+        dashboard={Dashboard}
       >
         <Resource {...MenuResource} />
         <Resource {...CategoryResource} />
