@@ -50,10 +50,12 @@ export const ManyToManyInput: FC<ManyToManyInputProps> = ({
     };
 
     fetchJoinReferences();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     formContext.setValue(source, chosenValuesIds);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chosenValuesIds]);
 
   return (
