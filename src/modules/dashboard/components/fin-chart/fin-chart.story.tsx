@@ -23,33 +23,24 @@ export const Primary: Story = {
   args: {
     data: [
       {
-        date: "04/09",
-        amount: 4000,
+        count: 8,
+        date: "2024-07-02",
+        sum: 1990,
       },
       {
-        date: "03/09",
-        amount: 3000,
+        count: 3,
+        date: "2024-07-01",
+        sum: 740,
       },
       {
-        date: "02/09",
-        amount: 2000,
+        count: 3,
+        date: "2024-06-28",
+        sum: 810,
       },
       {
-        date: "01/09",
-        amount: 2780,
-      },
-      {
-        date: "31/08",
-        amount: 1890,
-      },
-      {
-        date: "30/08",
-        amount: 2390,
-      },
-      {
-        date: "29/08",
-        amount: 3490,
-        pv: 4300,
+        count: 3,
+        date: "2024-06-27",
+        sum: 775,
       },
     ].reverse(),
   },

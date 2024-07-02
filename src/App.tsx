@@ -41,6 +41,7 @@ export const App = () => {
         <Resource {...OrderResource} />
         <Resource name="order_status" />
         <Resource name="orders_menu" />
+        <Resource name="last_week_orders" />
       </Admin>
     </>
   );
