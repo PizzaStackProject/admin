@@ -5,6 +5,7 @@ module.exports = {
   plugins: [
     {
       plugin: CracoAliasPlugin,
+      options: {},
     },
     {
       plugin: loadWebpackConfig,

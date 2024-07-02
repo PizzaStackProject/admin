@@ -1,21 +1,13 @@
 import { CssBaseline } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import {
-  Admin,
-  DataProvider,
-  Loading,
-  Resource,
-} from "react-admin";
-import buildHasuraProvider from "ra-data-hasura";
-import { MenuList } from "@app/modules/menu/components/menu-list/menu-list.component";
-import { MenuEdit } from "@app/modules/menu/components/menu-edit/menu-edit.component";
-import { MenuCreate } from "@app/modules/menu/components/menu-create/menu-create.component";
+import { useEffect, useState } from "react";
+import { Admin, DataProvider, Loading, Resource } from "react-admin";
 import { authProvider } from "./core/auth-provider";
-import { apolloClient } from "./core/apollo-client";
 import { theme } from "@app/core/theme";
-import { CategoriesList } from "./modules/categories/components/categories-list/categories-list";
-import { CategoryEdit } from "./modules/categories/components/category-edit/category-edit";
-import { CategoryCreate } from "./modules/categories/components/category-create/category-create";
+import { buildDataProvider } from "@app/core/data-provider";
+import { MenuResource } from "./modules/menu/menu.resource";
+import { OrderResource } from "./modules/orders/order.resource";
+import { CategoryResource } from "./modules/categories/category.resource";
+import { Dashboard } from "./modules/dashboard/components/dashboard/dashboard.component";
 
 export const App = () => {
   const [dataProvider, setDataProvider] = useState<DataProvider<string> | null>(
@@ -23,14 +15,13 @@ export const App = () => {
   );
 
   useEffect(() => {
-    const buildDataProvider = async () => {
-      const dp = await buildHasuraProvider({
-        client: apolloClient,
-      });
+    const getDataProvider = async () => {
+      const dp = await buildDataProvider();
+
       setDataProvider(dp);
     };
 
-    buildDataProvider();
+    getDataProvider();
   }, []);
 
   if (!dataProvider) return <Loading />;
@@ -43,19 +34,14 @@ export const App = () => {
         authProvider={authProvider}
         requireAuth
         theme={theme}
+        dashboard={Dashboard}
       >
-        <Resource
-          name="menu"
-          list={MenuList}
-          edit={MenuEdit}
-          create={MenuCreate}
-        />
-        <Resource
-          name="category"
-          list={CategoriesList}
-          edit={CategoryEdit}
-          create={CategoryCreate}
-        />
+        <Resource {...MenuResource} />
+        <Resource {...CategoryResource} />
+        <Resource {...OrderResource} />
+        <Resource name="order_status" />
+        <Resource name="orders_menu" />
+        <Resource name="last_week_orders" />
       </Admin>
     </>
   );
